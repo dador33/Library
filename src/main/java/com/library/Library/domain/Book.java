@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 
 
@@ -25,6 +26,8 @@ public class Book {
 	
 	private String isbn;
 
+	@ManyToOne
+	private Publisher publisher;
 	
 	
 	@ManyToMany
@@ -69,7 +72,13 @@ public class Book {
 	}
 	
 	
-	
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
+	}
 
 	public Set<Author> getAuthors() {
 		return authors;
